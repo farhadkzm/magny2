@@ -19,7 +19,7 @@ import { ListItemInfoComponent } from './service/service-list/list-item-info/lis
 import { MenuComponent } from './menu/menu.component';
 
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,9 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     FormsModule,
     //angular material
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
