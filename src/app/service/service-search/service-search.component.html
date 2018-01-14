@@ -1,13 +1,38 @@
-<div fxLayout="column">
-  <mat-form-field>
-    <mat-select placeholder="Gender">
-      <mat-option *ngFor="let option of gender"
+<div fxLayout="column" fxLayoutWrap>
+  <form fxLayout="column">
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+
+      <mat-select placeholder="Gender">
+        <mat-option *ngFor="let option of gender"
+                    [value]="option.value">
+          {{ option.title }}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Distance">
+        <mat-option *ngFor="let option of distance"
+                    [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field><mat-form-field>
+    <mat-select placeholder="Service">
+      <mat-option *ngFor="let option of services"
                   [value]="option.value">
         {{ option.title }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
 
-  <button mat-button>Clear</button>
-  <button mat-button>Search</button>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <button mat-raised-button mat-button>Clear</button>
+      <button mat-raised-button color="primary">Search</button>
+    </div>
+  </form>
 </div>
