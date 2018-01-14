@@ -1,3 +1,13 @@
-<p>
-  service-search works!
-</p>
+<div fxLayout="column">
+  <mat-form-field>
+    <mat-select placeholder="Gender">
+      <mat-option *ngFor="let option of gender"
+                  [value]="option.value">
+        {{ option.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button>Clear</button>
+  <button mat-button>Search</button>
+</div>

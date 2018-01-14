@@ -1,3 +1,11 @@
 <div>
-  menu works!
+  <mat-toolbar fxLayout="row"
+  style="background-color: blue">
+    <button mat-button>My Services</button>
+    <div fxFlex> </div>
+    <button mat-button>Notifications</button>
+    <button mat-button>Profile</button>
+    <button mat-button>Login / Register</button>
+    <button mat-button *ngIf="loggedIn">Log Out</button>
+  </mat-toolbar>
 </div>

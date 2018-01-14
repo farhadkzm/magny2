@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-service-search',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceSearchComponent implements OnInit {
 
-  constructor() { }
+  public gender: Array<{ value: string, title: string }>
+    = [{value: 'all', title: 'All'},
+    {value: 'male', title: 'Male'},
+    {value: 'female', title: 'Female'}];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

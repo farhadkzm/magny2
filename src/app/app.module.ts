@@ -17,8 +17,19 @@ import { NotificationComponent } from './notification/notification.component';
 import { MapItemInfoComponent } from './service/service-map/map-item-info/map-item-info.component';
 import { ListItemInfoComponent } from './service/service-list/list-item-info/list-item-info.component';
 import { MenuComponent } from './menu/menu.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
+
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatTabsModule,
+  MatListModule,
+  MatFormFieldModule, MatSelectModule
+} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
@@ -42,7 +53,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     //angular material
     MatButtonModule,
     MatCheckboxModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
 
+    BrowserAnimationsModule,
     FlexLayoutModule
   ],
   providers: [],
