@@ -1,20 +1,20 @@
-<mat-drawer-container  autosize>
-  <mat-drawer #drawer opened=true  mode="side">
-    <app-service-search></app-service-search>
-  </mat-drawer>
+<mat-sidenav-container>
 
-  <div>
+  <mat-sidenav opened="true"
+               disableClose="true"
+               mode="side" #search>
+    <app-service-search></app-service-search>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
     <mat-tab-group>
       <mat-tab label="Map">
         <app-service-map></app-service-map>
       </mat-tab>
       <mat-tab label="List">
-
         <app-service-list></app-service-list>
       </mat-tab>
     </mat-tab-group>
+  </mat-sidenav-content>
 
-
-  </div>
-
-</mat-drawer-container>
+</mat-sidenav-container>
