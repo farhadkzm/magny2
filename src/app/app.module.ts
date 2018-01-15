@@ -30,6 +30,10 @@ import {
   MatListModule,
   MatFormFieldModule, MatSelectModule, MatInputModule
 } from '@angular/material';
+
+import { AgmCoreModule } from '@agm/core';
+
+
 import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
@@ -50,6 +54,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   imports: [
     BrowserModule,
     FormsModule,
+
     //angular material
     MatButtonModule,
     MatCheckboxModule,
@@ -62,7 +67,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatInputModule,
 
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

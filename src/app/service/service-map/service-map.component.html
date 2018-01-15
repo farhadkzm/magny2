@@ -1,25 +1,6 @@
 
-<div id="map"></div>
-<style>
-  #map {
+  <agm-map [latitude]="lat" [longitude]="lng">
 
-    background-color: grey;
-  }
-</style>
-<script>
-  function initMap() {
-    var uluru = {lat: -25.363, lng: 131.044};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: uluru
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
-  }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0&callback=initMap"
-        type="text/javascript"></script>
+  </agm-map>
+
 
