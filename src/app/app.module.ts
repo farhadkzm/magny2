@@ -12,7 +12,7 @@ import { ServiceSearchComponent } from './service/service-search/service-search.
 import { ServiceNavComponent } from './service/service-nav/service-nav.component';
 import { ServiceInfoComponent } from './service/service-info/service-info.component';
 import { ProfileComponent } from './profile/profile.component';
-import { MyServiceComponent } from './my-service/my-service.component';
+import { MyServicesComponent } from './my-services/my-services.component';
 import { NotificationComponent } from './notification/notification.component';
 import { MapItemInfoComponent } from './service/service-map/map-item-info/map-item-info.component';
 import { ListItemInfoComponent } from './service/service-list/list-item-info/list-item-info.component';
@@ -44,8 +44,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ServiceSearchComponent,
     ServiceNavComponent,
     ServiceInfoComponent,
+    MyServicesComponent,
     ProfileComponent,
-    MyServiceComponent,
     NotificationComponent,
     MapItemInfoComponent,
     ListItemInfoComponent,
