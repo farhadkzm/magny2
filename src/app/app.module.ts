@@ -36,12 +36,13 @@ import {AgmCoreModule} from '@agm/core';
 
 
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 
 const appRoutes: Routes = [
-  {path: '', component: NotificationComponent},
+  {path: '', component: ServiceComponent},
   {path: 'notifications', component: NotificationComponent},
   {path: 'my_services', component: MyServicesComponent},
+  {path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({
@@ -77,7 +78,7 @@ const appRoutes: Routes = [
 
     BrowserAnimationsModule,
     FlexLayoutModule,
-
+    RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0'
     }),
