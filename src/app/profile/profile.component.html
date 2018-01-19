@@ -1,27 +1,30 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <form fxLayout="column">
-    <mat-form-field>
-      <input matInput placeholder="First Name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Last Name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Email">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Current Password">
-    </mat-form-field>
+  <mat-card>
+    <form fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Current Password">
+      </mat-form-field>
 
-    <mat-form-field>
-      <input type="password" matInput placeholder="New Password">
-    </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="New Password">
+      </mat-form-field>
 
 
-    <div fxLayout="row" fxLayoutGap="10px">
-      <a mat-button routerLink=".">Cancel</a>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <a mat-button routerLink=".">Cancel</a>
 
-      <button mat-raised-button color="primary">Save</button>
-    </div>
-  </form>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </mat-card>
 </div>
+

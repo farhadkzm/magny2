@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-notification',
@@ -6,8 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
+  notifications: Array<{ text: string, link: string }> = [
+    {
+      text: 'Service Apadana Shop just added to the Magny!',
+      link: 'http://google.com'
+    },
+    {
+      text: 'Service Apadana Shop just added to the Magny!',
+      link: 'http://google.com'
+    },
+    {
+      text: 'Service Apadana Shop just added to the Magny!',
+      link: 'http://google.com'
+    }
+  ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

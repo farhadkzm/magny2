@@ -1,3 +1,9 @@
-<p>
-  notification works!
-</p>
+<div fxLayout='row' fxLayoutAlign="center stretch">
+
+  <div fxLayout='column'  fxLayoutGap="5px">
+    <mat-card *ngFor="let notif of  notifications"><p>{{notif.text}}</p> Click <a [href]="notif.link">here</a> for more
+      details.
+    </mat-card>
+
+  </div>
+</div>

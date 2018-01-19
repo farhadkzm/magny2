@@ -19,7 +19,6 @@ import {ListItemInfoComponent} from './service/service-list/list-item-info/list-
 import {MenuComponent} from './menu/menu.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -29,7 +28,9 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule,
+
 } from '@angular/material';
 
 import {AgmCoreModule} from '@agm/core';
@@ -75,6 +76,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatCardModule,
 
     BrowserAnimationsModule,
     FlexLayoutModule,
