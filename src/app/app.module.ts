@@ -30,6 +30,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatCardModule,
+  MatExpansionModule
 
 } from '@angular/material';
 
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatInputModule,
     MatCardModule,
+    MatExpansionModule,
 
     BrowserAnimationsModule,
     FlexLayoutModule,

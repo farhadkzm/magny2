@@ -1,3 +1,81 @@
-<p>
-  my-services works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card>
+    <form >
+      <mat-form-field>
+        <input matInput placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Link">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Address">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Type">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Description"></textarea>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <a mat-button routerLink=".">Cancel</a>
+
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let service of myServices">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{service.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{service.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Name" [value]="service.name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone" [value]="service.phone">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Link" [value]="service.link">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Address" [value]="service.address">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Type" [value]="service.type">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" [value]="service.description"></textarea>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <a mat-button routerLink=".">Cancel</a>
+
+      <button mat-raised-button color="primary">Save</button>
+    </div>
+  </mat-expansion-panel>
+
+
+</mat-accordion>
