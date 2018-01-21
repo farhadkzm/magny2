@@ -9,7 +9,6 @@ import {ServiceComponent} from './service/service.component';
 import {ServiceListComponent} from './service/service-list/service-list.component';
 import {ServiceMapComponent} from './service/service-map/service-map.component';
 import {ServiceSearchComponent} from './service/service-search/service-search.component';
-import {ServiceNavComponent} from './service/service-nav/service-nav.component';
 import {ServiceInfoComponent} from './service/service-info/service-info.component';
 import {ProfileComponent} from './profile/profile.component';
 import {MyServicesComponent} from './my-services/my-services.component';
@@ -45,7 +44,6 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { ServiceDetailsComponent } from './service-details/service-details.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -65,7 +63,6 @@ const appRoutes: Routes = [
     ServiceListComponent,
     ServiceMapComponent,
     ServiceSearchComponent,
-    ServiceNavComponent,
     ServiceInfoComponent,
     MyServicesComponent,
     ProfileComponent,
@@ -77,7 +74,6 @@ const appRoutes: Routes = [
     LoginComponent,
     AdminComponent,
     HomeComponent,
-    ServiceDetailsComponent
   ],
   imports: [
     BrowserModule,
