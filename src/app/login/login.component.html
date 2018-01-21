@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card *ngIf="login">
+    <form fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Password">
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+
+        <button mat-raised-button color="primary">Login</button>
+
+        <a mat-button (click)="login = false">Forget your password?</a>
+
+      </div>
+    </form>
+  </mat-card>
+
+  <mat-card *ngIf="!login">
+    <form fxLayout="column">
+      Please enter your email address and we will send an email including instructions to reset
+      your password.
+
+      <mat-form-field>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+
+        <button mat-raised-button color="primary">Send Email</button>
+
+      </div>
+    </form>
+  </mat-card>
+</div>
+

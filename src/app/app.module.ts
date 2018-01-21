@@ -21,17 +21,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
   MatButtonModule,
+  MatCardModule,
   MatCheckboxModule,
+  MatExpansionModule,
   MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
   MatListModule,
   MatSelectModule,
   MatSidenavModule,
+  MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatCardModule,
-  MatExpansionModule
-
+  MatTooltipModule,
 } from '@angular/material';
 
 import {AgmCoreModule} from '@agm/core';
@@ -39,12 +41,20 @@ import {AgmCoreModule} from '@agm/core';
 
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {RouterModule, Routes} from "@angular/router";
+import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', component: ServiceComponent},
+  {path: '', component: HomeComponent},
+  {path: 'search', component: ServiceComponent},
   {path: 'notifications', component: NotificationComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'my_services', component: MyServicesComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'admin', component: AdminComponent},
 ];
 
 @NgModule({
@@ -61,7 +71,11 @@ const appRoutes: Routes = [
     NotificationComponent,
     MapItemInfoComponent,
     ListItemInfoComponent,
-    MenuComponent
+    MenuComponent,
+    RegisterComponent,
+    LoginComponent,
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +93,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCardModule,
     MatExpansionModule,
-
+    MatTableModule,
+    MatTooltipModule,
+    MatIconModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
