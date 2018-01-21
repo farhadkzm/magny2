@@ -45,6 +45,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
+import { ServiceDetailsComponent } from './service-details/service-details.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -75,7 +76,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     BrowserModule,
