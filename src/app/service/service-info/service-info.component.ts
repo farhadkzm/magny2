@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-service-info',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./service-info.component.css']
 })
 export class ServiceInfoComponent implements OnInit {
+  constructor(public dialogRef: MatDialogRef<ServiceInfoComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log("New of me", data)
+  }
 
-  constructor() { }
+  closeDialog() {
+    this.dialogRef.close('Pizza!');
+  }
 
   ngOnInit() {
   }

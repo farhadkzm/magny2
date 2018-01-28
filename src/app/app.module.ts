@@ -21,7 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
@@ -91,6 +91,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCardModule,
     MatExpansionModule,
+    MatDialogModule,
     MatTableModule,
     MatTooltipModule,
     MatIconModule,
@@ -101,6 +102,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0'
     }),
   ],
+  entryComponents: [ServiceInfoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
