@@ -1,3 +1,43 @@
-<p>
-  home works!
-</p>
+<div fxLayout
+     fxLayoutWrap
+     fxLayoutAlign="center stretch">
+  <div fxFlex="100%"
+       fxFlexAlign="center">
+    <div style="max-width: 1200px">
+      <img fxFlexFill
+           src="https://vignette.wikia.nocookie.net/joke-battles/images/a/ac/Tree.png/revision/latest?cb=20170827155628">
+    </div>
+  </div>
+
+  <div fxLayout
+       fxLayoutGap="20px"
+       fxLayout.xs="column">
+    <div fxFlex="25%"
+         *ngFor="let i of [1,2,3,4]">
+      <mat-card >
+
+        <img mat-card-image
+             src="https://line25.com/wp-content/uploads/2016/06/3-I-am-Creator-%E2%80%93-Perspective-Edition-Demo.jpg"
+             alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+    </div>
+  </div>
+
+  <div fxFlex="100%"
+       fxFlexAlign="center">
+    <span>Magny, a place to share our local knowledge.</span>
+  </div>
+
+</div>
