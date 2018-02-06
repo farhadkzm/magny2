@@ -21,7 +21,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule, MatDialogModule,
+  MatCheckboxModule,
+  MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
@@ -42,8 +43,10 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {RouterModule, Routes} from "@angular/router";
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
-import { HomeComponent } from './home/home.component';
+import {AdminComponent} from './admin/admin.component';
+import {HomeComponent} from './home/home.component';
+import {UserAdminComponent} from './admin/user-admin/user-admin.component';
+import {ServiceAdminComponent} from './admin/service-admin/service-admin.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -74,6 +77,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AdminComponent,
     HomeComponent,
+    UserAdminComponent,
+    ServiceAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +107,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0'
     }),
   ],
-  entryComponents: [ServiceInfoComponent],
+  entryComponents: [ServiceInfoComponent, UserAdminComponent, ServiceAdminComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

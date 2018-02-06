@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {MatDialog, MatTableDataSource} from '@angular/material';
+import {UserAdminComponent} from "./user-admin/user-admin.component";
+import {ServiceAdminComponent} from "./service-admin/service-admin.component";
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +10,7 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -27,6 +29,31 @@ export class AdminComponent implements OnInit {
   }
 
 
+  onBizEdit(element: Business) {
+    let dialogRef = this.dialog.open(ServiceAdminComponent, {
+      height: '350px',
+      data: element
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+
+    });
+  }
+
+
+  onUserEdit(element: User) {
+    let dialogRef = this.dialog.open(UserAdminComponent, {
+      height: '350px',
+      data: element
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+
+    });
+
+  }
 }
 
 export interface Business {
