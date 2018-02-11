@@ -1,40 +1,61 @@
-<div>
+<div fxLayout="column" fxLayoutAlign="none none">
 
-  <div fxLayout="row" fxLayoutAlign="center center">
-    <mat-card>
-      <form>
-        <mat-form-field>
-          <input matInput placeholder="Name">
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Phone">
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Link">
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Address">
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Type">
-        </mat-form-field>
-
-        <mat-form-field>
-          <textarea matInput placeholder="Description"></textarea>
-        </mat-form-field>
-
-        <div fxLayout="row" fxLayoutGap="10px">
-          <a mat-button routerLink=".">Cancel</a>
-
-          <button mat-raised-button color="primary">Save</button>
-        </div>
-      </form>
-    </mat-card>
+  <div>
+    <span style="padding-left:  20px"> To add a new service please verify your email address first.</span>
+    <button mat-button color="primary"
+            (click)="openSnackBar()">Send Verification Email
+    </button>
   </div>
+
+  <mat-card>
+    <form>
+
+      <mat-form-field>
+        <input matInput placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Link">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Address">
+
+      </mat-form-field>
+      <a mat-button>Verify Address</a>
+
+
+      <mat-form-field>
+        <mat-select placeholder="Service Type">
+          <mat-option *ngFor="let type of ['Restaurant','Doctor']" [value]="type">
+            {{ type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <textarea matInput placeholder="Description"></textarea>
+      </mat-form-field>
+
+      <div fxLayout="column">
+        <span>Upload photo fo your service</span>
+
+        <input type="file" placeholder="Photo of your business">
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <a mat-button routerLink=".">Cancel</a>
+
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </form>
+  </mat-card>
+
   <mat-accordion>
     <mat-expansion-panel *ngFor="let service of myServices">
       <mat-expansion-panel-header>
@@ -63,7 +84,11 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Type" [value]="service.type">
+        <mat-select placeholder="Service Type">
+          <mat-option *ngFor="let type of ['Restaurant','Doctor']" [value]="type">
+            {{ type}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field>
@@ -77,8 +102,6 @@
         <span matTooltip="Approved to be shown to users and appeared in search results.">Approved: True</span>
       </div>
     </mat-expansion-panel>
-
-
   </mat-accordion>
 
 </div>

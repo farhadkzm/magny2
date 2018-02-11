@@ -1,13 +1,19 @@
 <div fxLayout='row' fxLayoutAlign="center stretch">
 
-  <div fxLayout='column'  fxLayoutGap="5px">
-    <mat-card ><p>You ranked <a>Apadana Supermarket</a> as 4 star business</p> Click <a (click)="onMoreInfo()" >here</a> for more
-      details.
-    </mat-card><mat-card ><p>You put comment on <a>Apadana Supermarket</a> </p> Click <a >here</a> for more
-      details.
+  <div fxLayout='column' fxLayoutGap="5px">
+    <mat-card>
+      <p>You ranked <b>Apadana Supermarket</b> as 4 star business</p>
+      <span>See <a (click)="onMoreInfo()">details</a></span>
     </mat-card>
-    <mat-card *ngFor="let notif of  notifications"><p>{{notif.text}}</p> Click <a [href]="notif.link">here</a> for more
-      details.
+
+    <mat-card>
+      <p>You commented on <b>Apadana Supermarket</b></p>
+      <span>See <a (click)="onMoreInfo()">details</a></span>
+    </mat-card>
+    <mat-card *ngFor="let notif of  notifications">
+
+      <p>{{notif.text}}</p>
+      <span>See <a (click)="onMoreInfo()">details</a></span>
     </mat-card>
 
   </div>

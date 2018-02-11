@@ -1,11 +1,12 @@
-<div>
-  <mat-toolbar fxLayout="row"
-               style="background-color: blue">
-
+<mat-toolbar color="primary">
+  <div fxLayout="row"
+       fxLayoutWrap=""
+       fxHide
+       fxShow.gt-xs>
     <a mat-button routerLink="my_services">My Services</a>
     <a mat-button routerLink="search">Search</a>
 
-    <div fxFlex></div>
+
     <a mat-button routerLink="notifications">Notifications</a>
 
     <a mat-button routerLink="profile">Profile</a>
@@ -13,6 +14,28 @@
     <a mat-button routerLink="register">Register</a>
     <a mat-button routerLink="login">Login</a>
     <a mat-button routerLink=".">Log Out</a>
+  </div>
+  <div fxHide fxShow.xs>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
 
-  </mat-toolbar>
-</div>
+      <div fxLayout="column"
+           fxLayoutAlign="none start" >
+      <a mat-button routerLink="my_services">My Services</a>
+      <a mat-button routerLink="search">Search</a>
+
+
+      <a mat-button routerLink="notifications">Notifications</a>
+
+      <a mat-button routerLink="profile">Profile</a>
+      <a mat-button routerLink="admin">Admin Panel</a>
+      <a mat-button routerLink="register">Register</a>
+      <a mat-button routerLink="login">Login</a>
+      <a mat-button routerLink=".">Log Out</a>
+      </div>
+    </mat-menu>
+
+  </div>
+</mat-toolbar>

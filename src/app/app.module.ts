@@ -27,9 +27,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBar, MatSnackBarModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
@@ -86,6 +86,7 @@ const appRoutes: Routes = [
 
     //angular material
     MatButtonModule,
+    MatMenuModule,
     MatCheckboxModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -100,6 +101,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatTooltipModule,
     MatIconModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),

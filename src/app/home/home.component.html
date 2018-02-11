@@ -10,33 +10,94 @@
   </div>
 
   <div fxLayout
-       fxLayoutGap="20px"
+       fxLayoutWrap.gt-xs=""
+       fxLayoutAlign.gt-xs="none stretch"
        fxLayout.xs="column">
-    <div fxFlex="25%"
-         *ngFor="let i of [1,2,3,4]">
-      <mat-card >
+    <div fxFlex.gt-xs="33">
 
-        <img mat-card-image
-             src="https://line25.com/wp-content/uploads/2016/06/3-I-am-Creator-%E2%80%93-Perspective-Edition-Demo.jpg"
-             alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-header>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
+      <div style="padding: 10% 10% 0 10%">
+        <mat-card>
+
+          <img mat-card-image
+               src="http://www.rabblerousetheworld.com/wp-content/uploads/2013/07/friends-fingers.jpg"
+               alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Magny helps you find services that speak <b>your language</b>.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+
+    </div>
+    <div fxFlex.gt-xs="33">
+
+      <div style="padding: 10% 10% 0 10%">
+        <mat-card>
+
+          <img mat-card-image
+               src="http://lerablog.org/wp-content/uploads/2017/04/ytreyretrwerg.jpg"
+               alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Adding a new service on Magny is free and will always be free.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+
+    </div>
+    <div fxFlex.gt-xs="33">
+
+      <div style="padding: 10% 10% 0 10%">
+        <mat-card>
+
+          <img mat-card-image
+               src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/05/design-review.png"
+               alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Find businesses' reviews and scores and contribute by giving them feedback.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
 
     </div>
   </div>
 
-  <div fxFlex="100%"
-       fxFlexAlign="center">
+  <div fxLayout
+       fxLayoutWrap.gt-xs=""
+       fxLayout.xs="column">
+    <div fxFlex.gt-xs="25%"
+         *ngFor="let i of [1,2,3,4]">
+
+      <div style="padding: 10% 10% 0 10%">
+        <mat-card>
+
+          <img mat-card-image
+               src="https://lh3.googleusercontent.com/08FmFKtUfkHSmg-Ca-dKzCPvs5O0RfPyjqAVJODPhpGA3Gjhj4Y5N-7PpHjTtSAppw=w646"
+          >
+          <mat-card-content>
+            <p>
+              Shiraz restaurant is a cozy place for all Iranians!
+              Come over for delicious traditional Iranian foods.
+            </p>
+          </mat-card-content>
+          <mat-card-header>
+            <mat-card-title><b>Shiraz Restaurant</b></mat-card-title>
+            <mat-card-subtitle>Ali Shamsi</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div fxFlex="100%">
     <span>Magny, a place to share our local knowledge.</span>
   </div>
 
