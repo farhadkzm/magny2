@@ -1,23 +1,26 @@
-<mat-sidenav-container>
+<div fxLayout fxLayoutAlign="start stretch"
+     style="height: 80%;width:100%;position: absolute;">
 
-  <mat-sidenav opened="true"
-               disableClose="true"
-               mode="side" #search>
+  <div fxFlex="20">
     <app-service-search></app-service-search>
-  </mat-sidenav>
+  </div>
+  <div fxFlex="80">
+    <div style="height: 100%;background-color: green">
 
+      <mat-tab-group>
 
-  <mat-sidenav-content
-style="height: 400px"
-  >
-    <mat-tab-group>
-      <mat-tab label="Map" >
-        <app-service-map></app-service-map>
-      </mat-tab>
-      <mat-tab label="List">
-        <app-service-list></app-service-list>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-sidenav-content>
+        <mat-tab label="List">
+          <div fxLayout="" fxLayoutAlign="start stretch"
 
-</mat-sidenav-container>
+               style="height: 100%;background-color: rebeccapurple">
+            <app-service-list fxFill=""></app-service-list>
+          </div>
+        </mat-tab>
+        <mat-tab label="Map">
+          <app-service-map style="height: 100%;background-color: green"></app-service-map>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+
+</div>
