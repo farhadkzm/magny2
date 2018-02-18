@@ -1,3 +1,4 @@
+<!--
 <div fxLayout="column" fxLayoutAlign="none none">
 
   <div>
@@ -104,4 +105,54 @@
     </mat-expansion-panel>
   </mat-accordion>
 
+</div>
+-->
+
+<div fxLayout
+     fxLayoutWrap.gt-xs=""
+     fxLayout.xs="column">
+  <div fxFlex.gt-xs="25%" (click)="onMoreInfo()">
+
+    <div style="padding: 10% 10% 0 10%">
+      <mat-card>
+
+        <img mat-card-image
+             src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png"
+        >
+        <mat-card-content>
+          <p>
+            Click to add a new service.
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <mat-card-title><b>Help your community by adding new services.</b></mat-card-title>
+
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+  </div>
+  <div fxFlex.gt-xs="25%"
+       *ngFor="let i of [1,2,3,4]">
+
+    <div style="padding: 10% 10% 0 10%">
+      <mat-card>
+
+        <img mat-card-image
+             src="https://lh3.googleusercontent.com/08FmFKtUfkHSmg-Ca-dKzCPvs5O0RfPyjqAVJODPhpGA3Gjhj4Y5N-7PpHjTtSAppw=w646"
+        >
+        <mat-card-content>
+          <p>
+            Shiraz restaurant is a cozy place for all Iranians!
+            Come over for delicious traditional Iranian foods.
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <mat-card-title><b>Shiraz Restaurant</b></mat-card-title>
+          <mat-card-subtitle>Added by Ali Shamsi</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+  </div>
 </div>

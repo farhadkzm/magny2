@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MatSnackBar} from "@angular/material";
+import {MatDialog} from "@angular/material";
+import {ServiceNewComponent} from "../service/service-new/service-new.component";
 
 @Component({
   selector: 'app-my-services',
@@ -9,49 +10,22 @@ import {MatSnackBar} from "@angular/material";
 export class MyServicesComponent implements OnInit {
 
 
-  myServices: Array<{
-    name: string,
-    link: string,
-    phone: string,
-    address: string
-    type: string
-    description: string
-  }> = [
-    {
-      name: 'Apadana Supermarket',
-      link: 'http://apadana.com',
-      phone: '0432032324',
-      address: '123 MT Alexander rd, Travancore VIC 3032',
-      type: 'restaurant',
-      description: 'A nice supermarket in Travancore!'
-    },
-   {
-      name: 'Kuala Supermarket',
-      link: 'http://apadana.com',
-      phone: '0432032324',
-      address: '123 MT Alexander rd, Travancore VIC 3032',
-      type: 'restaurant',
-      description: 'A nice supermarket in Travancore!'
-    },
-   {
-      name: 'Hello Supermarket',
-      link: 'http://apadana.com',
-      phone: '0432032324',
-      address: '123 MT Alexander rd, Travancore VIC 3032',
-      type: 'restaurant',
-      description: 'A nice supermarket in Travancore!'
-    },
-  ];
-
-  constructor(public snackBar: MatSnackBar) {}
-
-  openSnackBar() {
-    this.snackBar.open('Check your email! We just sent you an email.', '', {
-      duration: 4000,
-    });
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
+  }
+
+  onMoreInfo() {
+    let dialogRef = this.dialog.open(ServiceNewComponent, {
+      height: '350px',
+      data: {name: 'my data'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+
+    });
   }
 
 }
