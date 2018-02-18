@@ -1,0 +1,48 @@
+<mat-card>
+  <form>
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Link">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Address">
+
+    </mat-form-field>
+    <a mat-button>Verify Address</a>
+
+
+    <mat-form-field>
+      <mat-select placeholder="Service Type">
+        <mat-option *ngFor="let type of ['Restaurant','Doctor']" [value]="type">
+          {{ type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <div fxLayout="column">
+      <span>Upload photo fo your service</span>
+
+      <input type="file" placeholder="Photo of your business">
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <a mat-button >Cancel</a>
+
+      <button mat-raised-button color="primary">Save</button>
+    </div>
+  </form>
+</mat-card>
