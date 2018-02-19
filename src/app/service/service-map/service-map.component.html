@@ -1,4 +1,5 @@
-<agm-map [latitude]="lat" [longitude]="lng">
+<div class="div-wrapper">
+<agm-map class="map" [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng">
     <agm-info-window>
       <div fxLayout="column">
@@ -8,5 +9,7 @@
     </agm-info-window>
   </agm-marker>
 </agm-map>
+
+</div>
 
 

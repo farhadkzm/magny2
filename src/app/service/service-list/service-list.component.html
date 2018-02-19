@@ -1,33 +1,40 @@
+<div fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutWrap.gt-xs=""
+     >
 
-<mat-table #table [dataSource]="dataSource">
+  <div fxFlex.lt-xs="50%" fxFlex.gt-sm="25%" style="padding: 5px"
+       *ngFor="let i of [1,2,3,4,5,6,7]">
+    <mat-card>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+      <img mat-card-image
+           src="https://lh3.googleusercontent.com/08FmFKtUfkHSmg-Ca-dKzCPvs5O0RfPyjqAVJODPhpGA3Gjhj4Y5N-7PpHjTtSAppw=w646"
+      >
+      <mat-card-content>
+        <mat-card-header>
+          <mat-card-title><b>Shiraz Restaurant</b></mat-card-title>
+          <mat-card-subtitle>Added by Ali Shamsi</mat-card-subtitle>
+        </mat-card-header>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-    <mat-cell *matCellDef="let element"> <a>{{element.name}}</a></mat-cell>
-  </ng-container>
+        <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start start">
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
+            <mat-icon>phone</mat-icon>
+            <span>0432039453</span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
+            <mat-icon>web</mat-icon>
+            <a target="_blank" href="http://google.com">google.com...</a>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="address">
-    <mat-header-cell *matHeaderCellDef> Address</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.address}}</mat-cell>
-  </ng-container>
+            <span>39 MT Alexander rd Travancore 3032</span>
+          </div>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="gender">
-    <mat-header-cell *matHeaderCellDef> Gender</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.gender}}</mat-cell>
-  </ng-container>
+        </div>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="phone">
-    <mat-header-cell *matHeaderCellDef> Phone</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.phone}}</mat-cell>
-  </ng-container>
+      </mat-card-content>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    </mat-card>
+
+  </div>
+</div>

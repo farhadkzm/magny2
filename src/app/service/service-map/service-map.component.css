@@ -1,6 +1,16 @@
-agm-map {
-  /*height: 300px;*/
+
+.div-wrapper {
+  position:relative;
+  height: calc(100vh - 100px);
+  width: 100%;
+  background-color: antiquewhite;
 }
-.google-map-container{
-  background-color: aqua;
+
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: calc(100vh - 100px);
 }
