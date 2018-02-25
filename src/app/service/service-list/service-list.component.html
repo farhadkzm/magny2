@@ -4,36 +4,7 @@
 
   <div fxFlex.lt-xs="50%" fxFlex.gt-sm="25%" style="padding: 5px"
        *ngFor="let i of [1,2,3,4,5,6,7]">
-    <mat-card>
-
-      <img mat-card-image
-           src="https://lh3.googleusercontent.com/08FmFKtUfkHSmg-Ca-dKzCPvs5O0RfPyjqAVJODPhpGA3Gjhj4Y5N-7PpHjTtSAppw=w646"
-      >
-      <mat-card-content>
-        <mat-card-header>
-          <mat-card-title><b>Shiraz Restaurant</b></mat-card-title>
-          <mat-card-subtitle>Added by Ali Shamsi</mat-card-subtitle>
-        </mat-card-header>
-
-        <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start start">
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
-            <mat-icon>phone</mat-icon>
-            <span>0432039453</span>
-          </div>
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
-            <mat-icon>web</mat-icon>
-            <a target="_blank" href="http://google.com">google.com...</a>
-          </div>
-          <div fxLayoutGap="10px" fxLayoutAlign="space-around center">
-            39 MT Alexander rd Travancore 3032
-
-          </div>
-          <a (click)="onMoreInfo()">More...</a>
-        </div>
-
-      </mat-card-content>
-
-    </mat-card>
+    <app-service-info-min></app-service-info-min>
 
   </div>
 </div>
