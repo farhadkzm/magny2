@@ -50,6 +50,7 @@ import {HomeComponent} from './home/home.component';
 import {UserAdminComponent} from './admin/user-admin/user-admin.component';
 import {ServiceAdminComponent} from './admin/service-admin/service-admin.component';
 import {ServiceNewComponent} from './service/service-new/service-new.component';
+import { ServiceInfoMinComponent } from './service/service-info-min/service-info-min.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
     UserAdminComponent,
     ServiceAdminComponent,
     ServiceNewComponent,
+    ServiceInfoMinComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +116,7 @@ const appRoutes: Routes = [
     }),
   ],
   entryComponents: [ServiceInfoComponent,
+    ServiceInfoMinComponent,
     ServiceNewComponent,
     UserAdminComponent,
     ServiceAdminComponent],
