@@ -1,12 +1,14 @@
 <div
-     fxLayoutAlign=" stretch"
+  fxLayoutAlign=" stretch"
 
-     fxLayout="row"
-     fxLayout.xs="column"
-     fxLayoutWrap.gt-xs=""
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap.gt-xs=""
 >
 
-  <div fxLayoutWrap.gt-xs="20" fxLayout="column">
+  <div fxFlex.gt-xs="20"
+       fxFlex.xs=""
+       fxLayout="column">
 
     <mat-button-toggle-group #group="matButtonToggleGroup">
       <mat-button-toggle value="map" checked="true">
@@ -22,8 +24,8 @@
   </div>
 
 
-  <app-service-map *ngIf="group.value =='map'" fxFlex="80"></app-service-map>
-  <app-service-list *ngIf="group.value =='list'" fxFlex="80"></app-service-list>
+  <app-service-map *ngIf="group.value =='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
+  <app-service-list *ngIf="group.value =='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
 
 
 </div>
