@@ -1,4 +1,4 @@
-<div>
+<div fxLayout="column" fxLayoutGap="10px">
   <mat-card>
     <mat-card-header>
 
@@ -16,31 +16,25 @@
     </mat-card-content>
 
   </mat-card>
-</div>
 
-<mat-card>
-  <div>
-    <form>
+  <form fxLayout="column">
 
-      <mat-form-field>
-        <textarea matInput placeholder="Write your review"></textarea>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select placeholder="Score">
-          <mat-option *ngFor="let item of [1,2,3,4,5]" value="item">{{item}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <textarea matInput placeholder="Write your review"></textarea>
+    </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <mat-select placeholder="Score">
+        <mat-option *ngFor="let item of [1,2,3,4,5]" value="item">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <div fxLayout="row" fxLayoutGap="10px">
+    <button fxFlex="30" mat-raised-button color="primary">Send</button>
 
-        <button mat-raised-button color="primary">Send</button>
-      </div>
-    </form>
-  </div>
+  </form>
 
   <div fxLayout="column" fxLayoutGap="10px">
 
-    <mat-card>
+    <mat-card *ngFor="let k of [1,2,3,4]">
       <mat-card-header>
         <div mat-card-avatar
              style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -53,7 +47,7 @@
           <p fxFlex="100">Awesome restaurant with friendly staff!</p>
           <div fxFlex="80"></div>
           <div fxFlex="20">
-            <button mat-icon-button>
+            <button  mat-icon-button>
               <mat-icon>mood_bad</mat-icon>
             </button>
           </div>
@@ -61,30 +55,7 @@
         </div>
       </mat-card-content>
     </mat-card>
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar
-             style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;"></div>
-        <mat-card-title>George</mat-card-title>
-        <mat-card-subtitle>Melbourne, VIC</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Awesome restaurant with frendly staff!</p>
-      </mat-card-content>
-    </mat-card>
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar
-             style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;"></div>
-        <mat-card-title>George</mat-card-title>
-        <mat-card-subtitle>Melbourne, VIC</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Awesome restaurant with frendly staff!</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</mat-card>
 
+  </div>
+
+</div>

@@ -1,7 +1,29 @@
-<div fxLayout fxLayoutAlign=" stretch">
+<div
+     fxLayoutAlign=" stretch"
 
-  <app-service-search fxFlex="20"></app-service-search>
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutWrap.gt-xs=""
+>
 
-  <app-service-map fxFlex="80"></app-service-map>
+  <div fxLayoutWrap.gt-xs="20" fxLayout="column">
+
+    <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle value="map" checked="true">
+        <mat-icon>add_location</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="list">
+        <mat-icon>list</mat-icon>
+      </mat-button-toggle>
+
+    </mat-button-toggle-group>
+
+    <app-service-search></app-service-search>
+  </div>
+
+
+  <app-service-map *ngIf="group.value =='map'" fxFlex="80"></app-service-map>
+  <app-service-list *ngIf="group.value =='list'" fxFlex="80"></app-service-list>
+
 
 </div>

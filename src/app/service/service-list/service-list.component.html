@@ -1,7 +1,6 @@
-<div fxLayout="row"
-     fxLayout.xs="column"
+<div fxLayout
      fxLayoutWrap.gt-xs=""
-     >
+     fxLayout.xs="column">
 
   <div fxFlex.lt-xs="50%" fxFlex.gt-sm="25%" style="padding: 5px"
        *ngFor="let i of [1,2,3,4,5,6,7]">
@@ -25,11 +24,11 @@
             <mat-icon>web</mat-icon>
             <a target="_blank" href="http://google.com">google.com...</a>
           </div>
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
+          <div fxLayoutGap="10px" fxLayoutAlign="space-around center">
+            39 MT Alexander rd Travancore 3032
 
-            <span>39 MT Alexander rd Travancore 3032</span>
           </div>
-
+          <a (click)="onMoreInfo()">More...</a>
         </div>
 
       </mat-card-content>
