@@ -29,6 +29,11 @@
           <mat-cell *matCellDef="let element"> {{element.address}}</mat-cell>
         </ng-container>
 
+       <ng-container matColumnDef="approved">
+          <mat-header-cell *matHeaderCellDef> Approved</mat-header-cell>
+          <mat-cell *matCellDef="let element"> <button>Approved</button></mat-cell>
+        </ng-container>
+
 
         <mat-header-row *matHeaderRowDef="bizColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: bizColumns;"></mat-row>
@@ -66,6 +71,11 @@
         <ng-container matColumnDef="email">
           <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.email}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="approved">
+          <mat-header-cell *matHeaderCellDef> Approved</mat-header-cell>
+          <mat-cell *matCellDef="let element"> <button>Approved</button></mat-cell>
         </ng-container>
 
 

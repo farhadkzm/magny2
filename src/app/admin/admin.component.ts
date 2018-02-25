@@ -16,10 +16,10 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
-  bizColumns = ['name', 'type', 'address'];
+  bizColumns = ['name', 'type', 'address','approved'];
   bizDataSource = new MatTableDataSource(businessData);
 
-  userColumns = ['firstName', 'lastName', 'email'];
+  userColumns = ['firstName', 'lastName', 'email','approved'];
   userDataSource = new MatTableDataSource(userData);
 
   applyFilter(dataSource: MatTableDataSource<any[]>, filterValue: string) {
