@@ -3,17 +3,15 @@
        fxLayoutWrap=""
        fxHide
        fxShow.gt-xs>
-    <a mat-button routerLink="my_services">My Services</a>
-    <a mat-button routerLink="search">Search</a>
+    <a mat-button *ngIf="loggedIn" routerLink="my_services">My Services</a>
+    <a mat-button *ngIf="loggedIn" routerLink="search">Search</a>
 
+    <a mat-button *ngIf="loggedIn" routerLink="notifications">Notifications</a>
 
-    <a mat-button routerLink="notifications">Notifications</a>
-
-    <a mat-button routerLink="profile">Profile</a>
-    <a mat-button routerLink="admin">Admin Panel</a>
-    <a mat-button routerLink="register">Register</a>
-    <a mat-button routerLink="login">Login</a>
-    <a mat-button routerLink=".">Log Out</a>
+    <a mat-button *ngIf="loggedIn" routerLink="profile">Profile</a>
+    <a mat-button *ngIf="loggedIn && admin" routerLink="admin">Admin Panel</a>
+    <a mat-button  *ngIf="!loggedIn" routerLink="login">Login</a>
+    <a mat-button *ngIf="loggedIn" routerLink=".">Log Out</a>
   </div>
   <div fxHide fxShow.xs>
     <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -23,17 +21,15 @@
 
       <div fxLayout="column"
            fxLayoutAlign="none start" >
-      <a mat-button routerLink="my_services">My Services</a>
-      <a mat-button routerLink="search">Search</a>
+      <a mat-button *ngIf="loggedIn" routerLink="my_services">My Services</a>
+      <a mat-button *ngIf="loggedIn" routerLink="search">Search</a>
 
+      <a mat-button *ngIf="loggedIn" routerLink="notifications">Notifications</a>
 
-      <a mat-button routerLink="notifications">Notifications</a>
-
-      <a mat-button routerLink="profile">Profile</a>
-      <a mat-button routerLink="admin">Admin Panel</a>
-      <a mat-button routerLink="register">Register</a>
-      <a mat-button routerLink="login">Login</a>
-      <a mat-button routerLink=".">Log Out</a>
+      <a mat-button *ngIf="loggedIn" routerLink="profile">Profile</a>
+      <a mat-button *ngIf="loggedIn && admin" routerLink="admin">Admin Panel</a>
+      <a mat-button  *ngIf="!loggedIn" routerLink="login">Login</a>
+      <a mat-button *ngIf="loggedIn" routerLink=".">Log Out</a>
       </div>
     </mat-menu>
 
