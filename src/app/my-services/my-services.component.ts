@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceNewComponent} from "../service/service-new/service-new.component";
-import {HttpClient} from "@angular/common/http";
 import {MatDialog} from "@angular/material";
 import {DatabaseService} from "../database.service";
 
@@ -13,14 +12,13 @@ import {DatabaseService} from "../database.service";
 export class MyServicesComponent implements OnInit {
 
 
-  constructor(public dialog: MatDialog, private http: HttpClient, private db: DatabaseService) {
+  constructor(public dialog: MatDialog, private db: DatabaseService) {
   }
 
   businesses: any;
 
   ngOnInit() {
 
-    // this.http.get('http://localhost:9200/magny/services/h9wxCWIBktgdx68vuRc8')
     this.db.getBusinesses().then(data => this.businesses = data);
   }
 

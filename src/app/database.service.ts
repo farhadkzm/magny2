@@ -1,16 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class DatabaseService {
 
-  constructor(private http: HttpClient) { }
+  private esUrl: string = 'http://localhost:9200';
+
+  constructor(private http: HttpClient) {
+  }
 
 
-  getBusinesses(){
-    // this.http.get('http://localhost:9200/magny/services/h9wxCWIBktgdx68vuRc8')
-    return this.http.get('http://localhost:9200/magny/services/_search?pretty&filter_path=hits.hits._source')
+  getBusinesses() {
+
+    return this.http.get(`${this.esUrl}/magny/services/_search`)
       .toPromise()
-      .then(data=>data['hits'].hits.map(it => it._source))
+      .then(data => data['hits'].hits.map(it => {
+        let source = it._source;
+        source.id = it._id;
+        return source
+      }))
   }
 }
