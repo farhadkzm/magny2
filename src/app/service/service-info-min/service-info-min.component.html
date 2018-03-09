@@ -1,11 +1,11 @@
 <mat-card>
 
   <img mat-card-image
-       src="https://lh3.googleusercontent.com/08FmFKtUfkHSmg-Ca-dKzCPvs5O0RfPyjqAVJODPhpGA3Gjhj4Y5N-7PpHjTtSAppw=w646"
+       src="{{business?.photoUrl}}"
   >
   <mat-card-header>
-    <mat-card-title><b>Shiraz Restaurant</b></mat-card-title>
-    <mat-card-subtitle>Supermarket</mat-card-subtitle>
+    <mat-card-title><b>{{business?.name}}</b></mat-card-title>
+    <mat-card-subtitle>{{business?.serviceType}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
@@ -13,14 +13,14 @@
     <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start start">
       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
         <mat-icon>phone</mat-icon>
-        <span>0432039453</span>
+        <span>{{business?.phone}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
         <mat-icon>web</mat-icon>
-        <a target="_blank" href="http://google.com">google.com...</a>
+        <a target="_blank" href="{{business?.website}}">{{business?.website}}</a>
       </div>
       <div fxLayoutGap="10px" fxLayoutAlign="space-around center">
-        39 MT Alexander rd Travancore 3032
+        {{business?.address}}
 
       </div>
       <a *ngIf="!disabledMoreInfo" (click)="onMoreInfo()">More...</a>

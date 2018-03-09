@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-service-info-min',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./service-info-min.component.css']
 })
 export class ServiceInfoMinComponent implements OnInit {
+
+  @Input()
+  business:any;
 
   constructor() { }
 
