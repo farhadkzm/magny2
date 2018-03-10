@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material";
 import {ServiceInfoComponent} from "../service/service-info/service-info.component";
+import {DatabaseService} from "../database.service";
 
 @Component({
   selector: 'app-notification',
@@ -8,28 +9,17 @@ import {ServiceInfoComponent} from "../service/service-info/service-info.compone
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
-  notifications: Array<{ text: string, link: string }> = [
-    {
-      text: 'Service Apadana Shop just added to the Magny!',
-      link: 'http://google.com'
-    },
-    {
-      text: 'Service Apadana Shop just added to the Magny!',
-      link: 'http://google.com'
-    },
-    {
-      text: 'Service Apadana Shop just added to the Magny!',
-      link: 'http://google.com'
-    }
-  ];
+  notifications: any;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,private db:DatabaseService) {
   }
 
   ngOnInit() {
+    this.db.getNotifications().then(data => this.notifications = data);
   }
 
   onMoreInfo() {
+
     let dialogRef = this.dialog.open(ServiceInfoComponent, {
       height: '350px',
       data: {name: 'my data'}
