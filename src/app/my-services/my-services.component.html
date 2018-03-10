@@ -1,7 +1,7 @@
-<div fxLayout
+<div fxLayout.gt-xs="row"
      fxLayoutWrap.gt-xs=""
      fxLayout.xs="column">
-  <div fxFlex.gt-xs="25%" (click)="onMoreInfo()">
+  <div fxFlex.gt-xs="0 1 33" (click)="onMoreInfo()">
 
     <div style="padding: 10% 10% 0 10%">
       <mat-card>
@@ -22,11 +22,11 @@
     </div>
 
   </div>
-  <div fxFlex.gt-xs="25%"
-       *ngFor="let i of [1,2,3,4]">
+  <div fxFlex.gt-xs="0 1 33"
+       *ngFor="let biz of businesses">
 
     <div style="padding: 10% 10% 0 10%">
-      <app-service-info-min></app-service-info-min>
+      <app-service-info-min [business]="biz"></app-service-info-min>
     </div>
 
   </div>

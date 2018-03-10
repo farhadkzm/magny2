@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material";
 import {ServiceNewComponent} from "../service/service-new/service-new.component";
+import {MatDialog} from "@angular/material";
+import {DatabaseService} from "../database.service";
+
 
 @Component({
   selector: 'app-my-services',
@@ -10,10 +12,14 @@ import {ServiceNewComponent} from "../service/service-new/service-new.component"
 export class MyServicesComponent implements OnInit {
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private db: DatabaseService) {
   }
 
+  businesses: any;
+
   ngOnInit() {
+
+    this.db.getBusinesses().then(data => this.businesses = data);
   }
 
   onMoreInfo() {
