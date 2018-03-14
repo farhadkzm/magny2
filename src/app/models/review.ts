@@ -1,7 +1,9 @@
-export class Review {
-  id: string;
+import {CoreFields} from "./coreFields";
+
+export class Review extends CoreFields {
+
+  //entity fields
   user: { id: number, name: string };
-  approved: boolean;
   title: string;
   text: string;
   score: number;

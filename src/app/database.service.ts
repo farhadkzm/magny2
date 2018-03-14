@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Entity} from "./models/entity";
 import {Review} from "./models/review";
+import {Profile} from "./models/profile";
 
 @Injectable()
 export class DatabaseService {
@@ -24,6 +25,11 @@ export class DatabaseService {
         source.id = it._id;
         return source
       }))
+  }
+
+  getMyProfile(): Promise<Profile> {
+
+    return this.get('profile', 'my-profile');
   }
 
   getBusinesses(from: number = 0, size: number = 10): Promise<Array<Entity>> {
@@ -56,7 +62,12 @@ export class DatabaseService {
 
   getEntity(id: string): Promise<Entity> {
 
-    return this.http.get(`${this.esUrl}/entity/_doc/${id}`)
+    return this.get('entity', id);
+  }
+
+  private get(type: string, id: string): Promise<any> {
+
+    return this.http.get(`${this.esUrl}/${type}/_doc/${id}`)
       .toPromise<any>()
       .then(data => {
           if (!data.found) {

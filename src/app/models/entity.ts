@@ -1,5 +1,8 @@
-export class Entity {
-  id: string;
+import {CoreFields} from "./coreFields";
+
+export class Entity extends CoreFields {
+
+  //entity fields
   name: string;
   gender: string;
   website: string;
@@ -11,6 +14,5 @@ export class Entity {
   verified: boolean;
   serviceType: string;
   entityType: string;
-  created: string;
   score: number;
 }

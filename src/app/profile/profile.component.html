@@ -4,13 +4,13 @@
     <mat-card>
       <form fxLayout="column">
         <mat-form-field>
-          <input matInput placeholder="First Name">
+          <input matInput placeholder="First Name" [value]="profile?.firstName">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Last Name">
+          <input matInput placeholder="Last Name" [value]="profile?.lastName">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Email" [value]="profile?.email">
         </mat-form-field>
         <mat-form-field>
           <input type="password" matInput placeholder="Current Password">
