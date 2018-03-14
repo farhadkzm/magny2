@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Entity} from "../../models/entity";
 
 @Component({
   selector: 'app-service-info-min',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ServiceInfoMinComponent implements OnInit {
 
   @Input()
-  business:any;
+  entity:Entity;
 
   constructor() { }
 

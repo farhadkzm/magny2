@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ServiceNewComponent} from "../service/service-new/service-new.component";
 import {MatDialog} from "@angular/material";
 import {DatabaseService} from "../database.service";
+import {Entity} from "../models/entity";
 
 
 @Component({
@@ -15,11 +16,11 @@ export class MyServicesComponent implements OnInit {
   constructor(public dialog: MatDialog, private db: DatabaseService) {
   }
 
-  businesses: any;
+  entities: Array<Entity>;
 
   ngOnInit() {
 
-    this.db.getBusinesses().then(data => this.businesses = data);
+    this.db.getBusinesses().then(data => this.entities = data);
   }
 
   onMoreInfo() {

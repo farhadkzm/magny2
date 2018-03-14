@@ -1,11 +1,11 @@
-<mat-card>
+<mat-card *ngIf="entity">
 
   <img mat-card-image
-       src="{{business?.photoUrl}}"
+       src="{{entity.photoUrl}}"
   >
   <mat-card-header>
-    <mat-card-title ><b>{{business?.name}}</b></mat-card-title>
-    <mat-card-subtitle>{{business?.serviceType}}</mat-card-subtitle>
+    <mat-card-title><b>{{entity.name}}</b></mat-card-title>
+    <mat-card-subtitle>{{entity.serviceType}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
@@ -13,14 +13,14 @@
     <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start start">
       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
         <mat-icon>phone</mat-icon>
-        <span>{{business?.phone}}</span>
+        <span>{{entity.phone}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
         <mat-icon>web</mat-icon>
-        <a target="_blank" href="{{business?.website}}">{{business?.website}}</a>
+        <a target="_blank" href="{{entity.website}}">{{entity.website}}</a>
       </div>
       <div fxLayoutGap="10px" fxLayoutAlign="space-around center">
-        {{business?.address}}
+        {{entity.address}}
 
       </div>
       <a *ngIf="!disabledMoreInfo" (click)="onMoreInfo()">More...</a>

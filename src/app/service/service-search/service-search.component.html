@@ -1,12 +1,12 @@
 <div style="padding: 10% 10% 10% 10%">
 
-  <form fxLayout="column">
+  <form fxLayout="column" >
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput placeholder="Name" #nameInput>
     </mat-form-field>
     <mat-form-field>
 
-      <mat-select placeholder="Gender">
+      <mat-select placeholder="Gender" #genderInput>
         <mat-option *ngFor="let option of gender"
                     [value]="option.value">
           {{ option.title }}
@@ -14,26 +14,28 @@
       </mat-select>
 
     </mat-form-field>
+    <!--  <mat-form-field>
+      <!--<mat-select placeholder="Distance">
+         <mat-option *ngFor="let option of distance"
+                     [value]="option">
+           {{ option }}
+         </mat-option>
+       </mat-select>
+
+    </mat-form-field>-->
+
     <mat-form-field>
-      <mat-select placeholder="Distance">
-        <mat-option *ngFor="let option of distance"
-                    [value]="option">
-          {{ option }}
+      <mat-select placeholder="Service" #typeInput>
+        <mat-option *ngFor="let option of services"
+                    [value]="option.value">
+          {{ option.title }}
         </mat-option>
       </mat-select>
-
-    </mat-form-field><mat-form-field>
-    <mat-select placeholder="Service">
-      <mat-option *ngFor="let option of services"
-                  [value]="option.value">
-        {{ option.title }}
-      </mat-option>
-    </mat-select>
 
     </mat-form-field>
     <div fxLayout="row" fxLayoutGap="10px">
       <button mat-raised-button mat-button>Clear</button>
-      <button mat-raised-button color="primary">Search</button>
+      <button mat-raised-button color="primary" (click)="search()">Search</button>
     </div>
   </form>
 </div>

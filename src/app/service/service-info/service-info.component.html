@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutGap="10px">
-  <app-service-info-min></app-service-info-min>
+  <app-service-info-min [entity]="entity"></app-service-info-min>
 
   <form fxLayout="column">
 
@@ -8,7 +8,7 @@
     </mat-form-field>
     <mat-form-field fxFlex="100">
       <mat-select placeholder="Score">
-        <mat-option *ngFor="let item of [1,2,3,4,5]" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let score of [1,2,3,4,5]" value="item">{{score}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -18,17 +18,17 @@
 
   <div fxLayout="column" fxLayoutGap="10px">
 
-    <mat-card *ngFor="let k of [1,2,3,4]">
+    <mat-card *ngFor="let review of reviews">
       <mat-card-header>
         <div mat-card-avatar
              style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;"></div>
-        <mat-card-title>George</mat-card-title>
-        <mat-card-subtitle>Melbourne, VIC</mat-card-subtitle>
+        <mat-card-title>{{review.user.name}}</mat-card-title>
+        <mat-card-subtitle>{{review.title}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div fxLayout fxLayoutWrap="">
-          <p fxFlex="100">Awesome restaurant with friendly staff!</p>
+          <p fxFlex="100">{{review.text}}</p>
           <div fxFlex="80"></div>
           <div fxFlex="20">
             <button  mat-icon-button>
