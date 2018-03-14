@@ -11,6 +11,9 @@ export class ServiceInfoMinComponent implements OnInit {
   @Input()
   entity:Entity;
 
+  @Input()
+  disabledMoreInfo:boolean = false;
+
   constructor() { }
 
   ngOnInit() {

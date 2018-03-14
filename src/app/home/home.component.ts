@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DatabaseService} from "../database.service";
+import {Entity} from "../models/entity";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: DatabaseService) {
+  }
+
+  entities: Array<Entity>;
 
   ngOnInit() {
+
+    this.db.getBusinesses(0,4).then(data => this.entities = data);
   }
 
 }

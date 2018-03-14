@@ -73,10 +73,10 @@
        fxLayoutWrap.gt-xs=""
        fxLayout.xs="column">
     <div fxFlex.gt-xs="25%"
-         *ngFor="let i of [1,2,3,4]">
+         *ngFor="let entity of entities">
 
       <div style="padding: 10% 10% 0 10%">
-        <app-service-info-min></app-service-info-min>
+        <app-service-info-min [entity]="entity" [disabledMoreInfo]="true"></app-service-info-min>
       </div>
 
     </div>
