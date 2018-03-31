@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChildren} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-service-search',
@@ -16,14 +16,12 @@ export class ServiceSearchComponent implements OnInit {
     {value: 'restaurant', title: 'Restaurant'},
     {value: 'doctor', title: 'Doctor'}];
 
-  // public distance: string[] = ['5KM', '20KM', '50Km'];
-
-  @ViewChildren("nameInput") nameInput: ElementRef;
-  @ViewChildren("genderInput") genderInput: any;
-  @ViewChildren("typeInput") typeInput: any;
 
   @Input()
   result: any;
+
+  search: any = {};
+
 
   constructor() {
   }
@@ -31,8 +29,8 @@ export class ServiceSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  search() {
-    console.log(this.nameInput);
+  onSearchSubmit() {
+    console.log(this.search);
   }
 
 }

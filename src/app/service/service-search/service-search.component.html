@@ -1,12 +1,12 @@
 <div style="padding: 10% 10% 10% 10%">
 
-  <form fxLayout="column" >
+  <form fxLayout="column" #f="ngForm" (ngSubmit)="onSearchSubmit()" >
     <mat-form-field>
-      <input matInput placeholder="Name" #nameInput>
+      <input matInput placeholder="Name" name="name" [(ngModel)]="search.name"/>
     </mat-form-field>
     <mat-form-field>
 
-      <mat-select placeholder="Gender" #genderInput>
+      <mat-select placeholder="Gender"  name="gender" [(ngModel)]="search.gender">
         <mat-option *ngFor="let option of gender"
                     [value]="option.value">
           {{ option.title }}
@@ -14,18 +14,9 @@
       </mat-select>
 
     </mat-form-field>
-    <!--  <mat-form-field>
-      <!--<mat-select placeholder="Distance">
-         <mat-option *ngFor="let option of distance"
-                     [value]="option">
-           {{ option }}
-         </mat-option>
-       </mat-select>
-
-    </mat-form-field>-->
 
     <mat-form-field>
-      <mat-select placeholder="Service" #typeInput>
+      <mat-select placeholder="Service" name="entityType" [(ngModel)]="search.entityType">
         <mat-option *ngFor="let option of services"
                     [value]="option.value">
           {{ option.title }}
@@ -35,7 +26,7 @@
     </mat-form-field>
     <div fxLayout="row" fxLayoutGap="10px">
       <button mat-raised-button mat-button>Clear</button>
-      <button mat-raised-button color="primary" (click)="search()">Search</button>
+      <button mat-raised-button color="primary" type="submit" >Search</button>
     </div>
   </form>
 </div>
