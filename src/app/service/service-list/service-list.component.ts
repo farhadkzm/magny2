@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog, MatTableDataSource} from "@angular/material";
 import {ServiceInfoComponent} from "../service-info/service-info.component";
+import {Entity} from "../../models/entity";
 
 @Component({
   selector: 'app-service-list',
@@ -10,12 +11,20 @@ import {ServiceInfoComponent} from "../service-info/service-info.component";
 export class ServiceListComponent implements OnInit {
 
   displayedColumns = ['name', 'address', 'gender', 'phone'];
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Entity>();
+
+
+  @Input()
+  set entities(entities: Array<Entity>) {
+    this.dataSource.data = entities
+    console.log('data has been set', entities)
+  }
 
   constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.dataSource.data = this.entities;
   }
 
   onMoreInfo() {

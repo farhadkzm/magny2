@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {DatabaseService} from "../../database.service";
+import {Entity} from "../../models/entity";
 
 @Component({
   selector: 'app-service-search',
@@ -17,20 +19,31 @@ export class ServiceSearchComponent implements OnInit {
     {value: 'doctor', title: 'Doctor'}];
 
 
-  @Input()
-  result: any;
+  @Output() resultEvent = new EventEmitter<Entity[]>();
 
-  search: any = {};
+  searchParameters: any = {};
 
 
-  constructor() {
+  constructor(private db: DatabaseService) {
   }
 
   ngOnInit() {
   }
 
   onSearchSubmit() {
-    console.log(this.search);
+    //resultEvent
+    console.log(this.searchParameters);
+    let searchRequest = {
+      "query": {
+        "match_all": {}
+      }
+    };
+
+    this.db.search(searchRequest).then(data => {
+      console.log(data);
+      this.resultEvent.emit(data)});
+
+
   }
 
 }

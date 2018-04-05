@@ -2,11 +2,11 @@
 
   <form fxLayout="column" #f="ngForm" (ngSubmit)="onSearchSubmit()" >
     <mat-form-field>
-      <input matInput placeholder="Name" name="name" [(ngModel)]="search.name"/>
+      <input matInput placeholder="Name" name="name" [(ngModel)]="searchParameters.name"/>
     </mat-form-field>
     <mat-form-field>
 
-      <mat-select placeholder="Gender"  name="gender" [(ngModel)]="search.gender">
+      <mat-select placeholder="Gender"  name="gender" [(ngModel)]="searchParameters.gender">
         <mat-option *ngFor="let option of gender"
                     [value]="option.value">
           {{ option.title }}
@@ -16,7 +16,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Service" name="entityType" [(ngModel)]="search.entityType">
+      <mat-select placeholder="Service" name="entityType" [(ngModel)]="searchParameters.entityType">
         <mat-option *ngFor="let option of services"
                     [value]="option.value">
           {{ option.title }}
