@@ -20,12 +20,12 @@
 
     </mat-button-toggle-group>
 
-    <app-service-search (resultEvent)="searchResult = $event.message"></app-service-search>
+    <app-service-search (result)="updateSearchResult($event)"></app-service-search>
   </div>
 
 
-  <app-service-map *ngIf="group.value =='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
-  <app-service-list [entities]="searchResult" *ngIf="group.value =='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
+  <app-service-map #mapView *ngIf="group.value =='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
+  <app-service-list #listView *ngIf="group.value =='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
 
 
 </div>

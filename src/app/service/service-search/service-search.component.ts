@@ -19,7 +19,8 @@ export class ServiceSearchComponent implements OnInit {
     {value: 'doctor', title: 'Doctor'}];
 
 
-  @Output() resultEvent = new EventEmitter<Entity[]>();
+  @Output('result')
+  resultEvent = new EventEmitter<Entity[]>();
 
   searchParameters: any = {};
 
@@ -40,8 +41,9 @@ export class ServiceSearchComponent implements OnInit {
     };
 
     this.db.search(searchRequest).then(data => {
-      console.log(data);
-      this.resultEvent.emit(data)});
+      console.log('result from ES', data);
+      this.resultEvent.emit(data)
+    });
 
 
   }

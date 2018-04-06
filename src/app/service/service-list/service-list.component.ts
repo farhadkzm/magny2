@@ -14,10 +14,11 @@ export class ServiceListComponent implements OnInit {
   dataSource = new MatTableDataSource<Entity>();
 
 
-  @Input()
+  @Input('entities')
   set entities(entities: Array<Entity>) {
-    this.dataSource.data = entities
     console.log('data has been set', entities)
+    this.dataSource.data = entities;
+
   }
 
   constructor(public dialog: MatDialog) {
