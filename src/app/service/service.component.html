@@ -24,8 +24,8 @@
   </div>
 
 
-  <app-service-map #mapView *ngIf="group.value =='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
-  <app-service-list #listView *ngIf="group.value =='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
+  <app-service-map #mapView [hidden]="group.value !='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
+  <app-service-list #listView [hidden]="group.value !='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
 
 
 </div>
