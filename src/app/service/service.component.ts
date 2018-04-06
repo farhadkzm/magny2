@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-service',
@@ -6,8 +6,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit {
-  @ViewChild('mapView') map;
-  @ViewChild('listView') list;
 
 
   constructor() {
@@ -16,7 +14,4 @@ export class ServiceComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateSearchResult(event: any) {
-    this.list.entities = event
-  }
 }

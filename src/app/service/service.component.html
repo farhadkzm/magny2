@@ -20,7 +20,7 @@
 
     </mat-button-toggle-group>
 
-    <app-service-search (result)="updateSearchResult($event)"></app-service-search>
+    <app-service-search (result)="listView.entities = $event"></app-service-search>
   </div>
 
 
