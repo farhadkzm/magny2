@@ -12,12 +12,12 @@ export class ServiceListComponent implements OnInit {
 
   displayedColumns = ['name', 'address', 'gender', 'phone'];
   dataSource = new MatTableDataSource<Entity>();
-
+  services: Array<Entity>;
 
   @Input('entities')
   set entities(entities: Array<Entity>) {
-    console.log('data has been set', entities)
-    this.dataSource.data = entities;
+    console.log('data has been set', entities);
+    this.services = entities;
 
   }
 
@@ -25,7 +25,6 @@ export class ServiceListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource.data = this.entities;
   }
 
   onMoreInfo() {
@@ -40,16 +39,3 @@ export class ServiceListComponent implements OnInit {
     });
   }
 }
-
-export interface Element {
-  name: string;
-  address: string;
-  gender: string;
-  phone?: string;
-}
-
-const ELEMENT_DATA: Element[] = [
-  {name: 'Apadana Supermarket', address: '39 Mt Alexander rd, Travancore VIC 3032', gender: 'H', phone: 'H'},
-  {name: 'Apadana Supermarket', address: '39 Mt Alexander rd, Travancore VIC 3032', gender: 'He', phone: 'H'},
-  {name: 'Apadana Supermarket', address: '39 Mt Alexander rd, Travancore VIC 3032', gender: 'Li', phone: 'H'},
-]
