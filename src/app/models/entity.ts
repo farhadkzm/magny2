@@ -1,4 +1,5 @@
 import {CoreFields} from "./coreFields";
+import {ESLocation} from "./eSLcation";
 
 export class Entity extends CoreFields {
 
@@ -8,7 +9,7 @@ export class Entity extends CoreFields {
   website: string;
   address: string;
   description: string;
-  location: Location;
+  location: ESLocation;
   photoUrl: string;
   phone: string;
   verified: boolean;

@@ -13,12 +13,15 @@ export class ServiceMapComponent implements OnInit {
 
   center = {lat: -37.81886, lng: 144.95565};
   minZoomLevel = 12;
-  services: Array<Entity>;
+  services: Array<Entity> = [];
 
   @Input('entities')
   set entities(entities: Array<Entity>) {
+
     console.log('Map data has been set', entities);
-    this.services = entities;
+    this.services.length = 0;
+
+    entities.forEach(entity => this.services.push(entity));
 
   }
 

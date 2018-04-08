@@ -7,7 +7,7 @@
            [minZoom]="minZoomLevel">
     <agm-marker *ngFor="let marker of services"
                 [latitude]="marker.location.lat"
-                [longitude]="marker.location.lon" >
+                [longitude]="marker.location.lon">
       <agm-info-window>
         <div fxLayout="column">
           <Strong><a (click)="onMoreInfo()">{{marker.name}}</a></Strong>
