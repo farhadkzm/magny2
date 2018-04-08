@@ -49,7 +49,6 @@ export class ServiceMapComponent implements OnInit {
   }
 
   mapCenterChange(event) {
-    console.log(event);
     this.centerChange.emit({lat: event.lat, lon: event.lng});
   }
 }

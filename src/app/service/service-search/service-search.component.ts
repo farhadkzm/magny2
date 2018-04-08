@@ -11,11 +11,11 @@ import {ESLocation} from "../../models/eslcation";
 export class ServiceSearchComponent implements OnInit {
 
   public gender: Array<{ value: string, title: string }>
-    = [{value: 'all', title: 'All'},
+    = [{value: '', title: 'All'},
     {value: 'male', title: 'Male'},
     {value: 'female', title: 'Female'}];
   public services: Array<{ value: string, title: string }>
-    = [{value: 'all', title: 'All'},
+    = [
     {value: 'restaurant', title: 'Restaurant'},
     {value: 'doctor', title: 'Doctor'}];
 
