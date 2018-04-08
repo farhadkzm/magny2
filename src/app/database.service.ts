@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Entity} from "./models/entity";
 import {Review} from "./models/review";
 import {Profile} from "./models/profile";
+import {ESLocation} from "./models/eslcation";
 
 @Injectable()
 export class DatabaseService {
@@ -58,6 +59,52 @@ export class DatabaseService {
         source.id = it._id;
         return source
       }))
+  }
+
+  searchServices(center: ESLocation,
+         name: string,
+         serviceType: string,
+         gender: string,
+         distance: number = 50) {
+    //resultEvent
+    let searchRequest = {
+      "query": {
+        "bool": {
+          "filter": []
+        }
+      }
+
+    };
+
+    if (name) {
+      searchRequest.query.bool['should'] = [
+        {
+          "match": {
+            "name": {"query": name}
+          }
+        }
+      ];
+    }
+
+    if (serviceType) {
+      searchRequest.query.bool.filter.push({"term": {"serviceType": serviceType}})
+    }
+    if (gender) {
+      searchRequest.query.bool.filter.push({"term": {"gender": gender}})
+    }
+
+    searchRequest.query.bool.filter.push({
+      "geo_distance": {
+        "distance": `${distance}km`,
+        "location": {
+          "lat": center.lat,
+          "lon": center.lon
+        }
+      }
+    });
+
+    return this.search(searchRequest);
+
   }
 
   getEntity(id: string): Promise<Entity> {

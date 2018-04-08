@@ -8,7 +8,7 @@ export class Entity extends CoreFields {
   website: string;
   address: string;
   description: string;
-  location: { lat: number, lon: number };
+  location: Location;
   photoUrl: string;
   phone: string;
   verified: boolean;

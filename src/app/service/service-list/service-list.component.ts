@@ -16,7 +16,7 @@ export class ServiceListComponent implements OnInit {
 
   @Input('entities')
   set entities(entities: Array<Entity>) {
-    console.log('data has been set', entities);
+    console.log('List data has been set', entities);
     this.services = entities;
 
   }

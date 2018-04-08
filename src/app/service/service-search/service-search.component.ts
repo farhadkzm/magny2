@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DatabaseService} from "../../database.service";
 import {Entity} from "../../models/entity";
+import {ESLocation} from "../../models/eslcation";
 
 @Component({
   selector: 'app-service-search',
@@ -22,8 +23,15 @@ export class ServiceSearchComponent implements OnInit {
   @Output('result')
   resultEvent = new EventEmitter<Entity[]>();
 
-  searchParameters: any = {};
 
+  @Input()
+  searchCenter = {lat: -37.81886, lon: 144.95565};
+
+  searchParameters: {
+
+    name?: string,
+    serviceType?: string
+  } = {};
 
   constructor(private db: DatabaseService) {
   }
@@ -31,21 +39,17 @@ export class ServiceSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSearchSubmit() {
+  search(center: ESLocation = this.searchCenter) {
     //resultEvent
     console.log(this.searchParameters);
-    let searchRequest = {
-      "query": {
-        "match_all": {}
-      }
-    };
-
-    this.db.search(searchRequest).then(data => {
-      console.log('result from ES', data);
-      this.resultEvent.emit(data)
-    });
-
-
+    this.db.searchServices(center,
+      this.searchParameters.name,
+      this.searchParameters.serviceType, null)
+      .then(data => {
+        console.log('result from ES', data);
+        this.resultEvent.emit(data)
+      });
   }
+
 
 }
