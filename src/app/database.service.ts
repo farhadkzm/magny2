@@ -33,6 +33,12 @@ export class DatabaseService {
     return this.get('profile', 'my-profile');
   }
 
+  updateProfile(profile: Profile): void {
+
+    this.http.post(`${this.esUrl}/profile/_doc/my-profile`, profile).toPromise()
+      .then(data => console.log(data));
+  }
+
   getBusinesses(from: number = 0, size: number = 10): Promise<Array<Entity>> {
 
     return this.search({
@@ -62,10 +68,10 @@ export class DatabaseService {
   }
 
   searchServices(center: ESLocation,
-         name: string,
-         serviceType: string,
-         gender: string,
-         distance: number = 50) {
+                 name: string,
+                 serviceType: string,
+                 gender: string,
+                 distance: number = 50) {
     //resultEvent
     let searchRequest = {
       "query": {

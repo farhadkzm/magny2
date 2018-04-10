@@ -5,7 +5,6 @@ export class Entity extends CoreFields {
 
   //entity fields
   name: string;
-  gender: string;
   website: string;
   address: string;
   description: string;

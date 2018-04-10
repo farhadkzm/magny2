@@ -9,13 +9,18 @@ import {Profile} from "../models/profile";
 })
 export class ProfileComponent implements OnInit {
 
-  profile: Profile;
+  profile: Profile = new Profile();
 
   constructor(private db: DatabaseService) {
   }
 
   ngOnInit() {
     this.db.getMyProfile().then(data => this.profile = data)
+  }
+
+
+  updateProfile() {
+    this.db.updateProfile(this.profile);
   }
 
 }
