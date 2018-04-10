@@ -59,7 +59,7 @@ const appRoutes: Routes = [
   {path: 'notifications', component: NotificationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'my_services', component: MyServicesComponent},
+  {path: 'my_business', component: MyServicesComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'admin', component: AdminComponent},
 ];
