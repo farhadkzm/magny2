@@ -8,7 +8,7 @@
     <mat-form-field>
       <mat-select placeholder="Service"
                   name="entityType" [(ngModel)]="searchParameters.serviceType">
-        <mat-option *ngFor="let option of services"
+        <mat-option *ngFor="let option of serviceTypes"
                     [value]="option.value">
           {{ option.title }}
         </mat-option>

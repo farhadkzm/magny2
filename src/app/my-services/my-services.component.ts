@@ -20,10 +20,14 @@ export class MyServicesComponent implements OnInit {
 
   ngOnInit() {
 
+    this.loadEntities();
+  }
+
+  private loadEntities() {
     this.db.getBusinesses().then(data => this.entities = data);
   }
 
-  onMoreInfo() {
+  addNewService() {
     let dialogRef = this.dialog.open(ServiceNewComponent, {
       height: '350px',
       data: {name: 'my data'}
@@ -31,7 +35,7 @@ export class MyServicesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-
+      this.loadEntities();
     });
   }
 

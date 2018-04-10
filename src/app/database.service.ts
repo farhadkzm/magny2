@@ -28,6 +28,11 @@ export class DatabaseService {
       }))
   }
 
+  createService(entity: Entity): Promise<any> {
+   return this.http.post(`${this.esUrl}/entity/_doc`, entity).toPromise()
+      .then(data => console.log(data));
+  }
+
   getMyProfile(): Promise<Profile> {
 
     return this.get('profile', 'my-profile');

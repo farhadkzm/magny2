@@ -1,5 +1,6 @@
 import {CoreFields} from "./coreFields";
 import {ESLocation} from "./eSLcation";
+import {ServiceType} from "./service-type.enum";
 
 export class Entity extends CoreFields {
 
@@ -12,7 +13,7 @@ export class Entity extends CoreFields {
   photoUrl: string;
   phone: string;
   verified: boolean;
-  serviceType: string;
+  serviceType: ServiceType;
   entityType: string;
   score: number;
 }

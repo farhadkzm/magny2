@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DatabaseService} from "../../database.service";
 import {Entity} from "../../models/entity";
 import {ESLocation} from "../../models/eslcation";
+import {ServiceType} from "../../models/service-type.enum";
 
 @Component({
   selector: 'app-service-search',
@@ -10,14 +11,10 @@ import {ESLocation} from "../../models/eslcation";
 })
 export class ServiceSearchComponent implements OnInit {
 
-  public gender: Array<{ value: string, title: string }>
-    = [{value: '', title: 'All'},
-    {value: 'male', title: 'Male'},
-    {value: 'female', title: 'Female'}];
-  public services: Array<{ value: string, title: string }>
+  serviceTypes: Array<{ value: string, title: string }>
     = [
-    {value: 'restaurant', title: 'Restaurant'},
-    {value: 'doctor', title: 'Doctor'}];
+    {value: ServiceType.RESTAURANT, title: 'Restaurant'},
+    {value: ServiceType.DOCTOR, title: 'Doctor'}];
 
 
   @Output('result')
