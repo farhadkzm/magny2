@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DatabaseService} from "../../database.service";
-import {Entity} from "../../models/entity";
-import {ESLocation} from "../../models/eslcation";
+import {ESLocation} from "../../models/eSLcation";
 import {ServiceType} from "../../models/service-type.enum";
 
 @Component({
@@ -18,14 +17,15 @@ export class ServiceSearchComponent implements OnInit {
 
 
   @Output('result')
-  resultEvent = new EventEmitter<Entity[]>();
-
+  resultEvent = new EventEmitter<any>();
 
   @Input()
-  searchCenter = {lat: -37.81886, lon: 144.95565};
+  searchCenter: ESLocation = new ESLocation(-37.81886, 144.95565);
+  melbourneLocation: ESLocation = new ESLocation(-37.81886, 144.95565);
 
   searchParameters: {
 
+    address?: string,
     name?: string,
     serviceType?: string
   } = {};
@@ -36,6 +36,16 @@ export class ServiceSearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  addressChanged(event) {
+    let address = event.target.value;
+
+    this.db.getGeoCode(address, this.melbourneLocation)
+      .then(data => {
+        this.searchCenter = data
+      });
+    console.log(event)
+  }
+
   search(center: ESLocation = this.searchCenter) {
     //resultEvent
     console.log(this.searchParameters);
@@ -44,7 +54,8 @@ export class ServiceSearchComponent implements OnInit {
       this.searchParameters.serviceType, null)
       .then(data => {
         console.log('result from ES', data);
-        this.resultEvent.emit(data)
+
+        this.resultEvent.emit({data: data, center: this.searchCenter})
       });
   }
 

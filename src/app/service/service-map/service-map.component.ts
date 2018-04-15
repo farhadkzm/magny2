@@ -11,7 +11,7 @@ import {Entity} from "../../models/entity";
 })
 export class ServiceMapComponent implements OnInit {
 
-  center = {lat: -37.81886, lng: 144.95565};
+  defaultCenter: ESLocation = new ESLocation(-37.81886, 144.95565);
   minZoomLevel = 12;
   services: Array<Entity> = [];
 
@@ -22,6 +22,14 @@ export class ServiceMapComponent implements OnInit {
     this.services.length = 0;
 
     entities.forEach(entity => this.services.push(entity));
+
+  }
+
+  @Input('center')
+  set center(center: ESLocation) {
+
+    console.log('Center has been set with input');
+    this.defaultCenter = center
 
   }
 
@@ -49,6 +57,10 @@ export class ServiceMapComponent implements OnInit {
   }
 
   mapCenterChange(event) {
-    this.centerChange.emit({lat: event.lat, lon: event.lng});
+
+    if (!(this.defaultCenter.equals(event.lat, event.lon))) {
+
+      this.centerChange.emit(new ESLocation(event.lat, event.lng));
+    }
   }
 }

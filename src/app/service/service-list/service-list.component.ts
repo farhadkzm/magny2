@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MatDialog, MatTableDataSource} from "@angular/material";
+import {MatDialog} from "@angular/material";
 import {ServiceInfoComponent} from "../service-info/service-info.component";
 import {Entity} from "../../models/entity";
 
@@ -10,8 +10,6 @@ import {Entity} from "../../models/entity";
 })
 export class ServiceListComponent implements OnInit {
 
-  displayedColumns = ['name', 'address', 'gender', 'phone'];
-  dataSource = new MatTableDataSource<Entity>();
   services: Array<Entity>;
 
   @Input('entities')

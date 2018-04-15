@@ -15,6 +15,10 @@
       </mat-select>
 
     </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Search near" name="address" (change)="addressChanged($event)"/>
+    </mat-form-field>
     <div fxLayout="row" fxLayoutGap="10px">
       <button mat-raised-button mat-button>Clear</button>
       <button mat-raised-button color="primary" type="submit" >Search</button>

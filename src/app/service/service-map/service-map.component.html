@@ -1,7 +1,7 @@
 <div class="div-wrapper">
   <agm-map class="map"
-           [latitude]="center.lat"
-           [longitude]="center.lng"
+           [latitude]="defaultCenter.lat"
+           [longitude]="defaultCenter.lon"
            (centerChange)="mapCenterChange($event)"
            [zoom]="minZoomLevel"
            [minZoom]="minZoomLevel">

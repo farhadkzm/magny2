@@ -3,12 +3,13 @@ import {HttpClient} from "@angular/common/http";
 import {Entity} from "./models/entity";
 import {Review} from "./models/review";
 import {Profile} from "./models/profile";
-import {ESLocation} from "./models/eslcation";
+import {ESLocation} from "./models/eSLcation";
 
 @Injectable()
 export class DatabaseService {
 
   private esUrl: string = 'http://localhost:9200';
+  private apiKey: string = 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0';
 
   constructor(private http: HttpClient) {
   }
@@ -29,18 +30,45 @@ export class DatabaseService {
   }
 
   createService(entity: Entity): Promise<any> {
-   return this.http.post(`${this.esUrl}/entity/_doc`, entity).toPromise()
+    let ownerId = 'myuserid';
+    entity.ownerId = ownerId;
+    return this.http.post(`${this.esUrl}/entity/_doc/${ownerId}`, entity).toPromise()
       .then(data => console.log(data));
   }
 
+  getMyBusiness(): Promise<Entity> {
+    let ownerId: string = 'myuserid';
+
+    return this.get('entity', ownerId)
+
+  }
+
+
   getMyProfile(): Promise<Profile> {
 
-    return this.get('profile', 'my-profile');
+    return this.get('profile', 'myuserid');
+  }
+
+  getGeoCode(address: string, defaultLocation: ESLocation): Promise<ESLocation> {
+
+    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},Australia&key=${this.apiKey}`).toPromise()
+      .then(data => {
+          console.log('data from Google Geo Service', data);
+          let results = data['results'];
+          if (results.length != 0) {
+            return new ESLocation(results[0].geometry.location.lat
+              , results[0].geometry.location.lng);
+
+          }
+          console.log('returning default location');
+          return defaultLocation
+        }
+      );
   }
 
   updateProfile(profile: Profile): void {
 
-    this.http.post(`${this.esUrl}/profile/_doc/my-profile`, profile).toPromise()
+    this.http.post(`${this.esUrl}/profile/_doc/myuserid`, profile).toPromise()
       .then(data => console.log(data));
   }
 
@@ -76,7 +104,7 @@ export class DatabaseService {
                  name: string,
                  serviceType: string,
                  gender: string,
-                 distance: number = 50) {
+                 distance: number = 30) {
     //resultEvent
     let searchRequest = {
       "query": {

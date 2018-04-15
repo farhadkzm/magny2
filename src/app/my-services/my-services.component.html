@@ -39,7 +39,8 @@
 
 
       <mat-form-field>
-        <textarea matInput placeholder="Description"></textarea>
+        <textarea matInput placeholder="Description"
+                  name="description" [(ngModel)]="entity.description"></textarea>
       </mat-form-field>
 
       <div fxLayout="column">

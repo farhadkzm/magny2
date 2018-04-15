@@ -23,7 +23,7 @@ export class MyServicesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.db.getMyBusiness().then(entity => this.entity = entity)
 
   }
 

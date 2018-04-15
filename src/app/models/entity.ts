@@ -15,5 +15,6 @@ export class Entity extends CoreFields {
   verified: boolean;
   serviceType: ServiceType;
   entityType: string;
+  ownerId: string;
   score: number;
 }

@@ -20,11 +20,13 @@
 
     </mat-button-toggle-group>
 
-    <app-service-search #searchView (result)="listView.entities = $event;mapView.entities= $event"></app-service-search>
+    <app-service-search #searchView
+                        (result)="listView.entities = $event.data;mapView.entities= $event.data;mapView.center = $event.center"></app-service-search>
   </div>
 
 
-  <app-service-map #mapView (centerChange)="searchView.searchCenter = $event" [hidden]="group.value !='map'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-map>
+  <app-service-map #mapView (centerChange)="searchView.search($event)" [hidden]="group.value !='map'" fxFlex.gt-xs="80"
+                   fxFlex.xs=""></app-service-map>
   <app-service-list #listView [hidden]="group.value !='list'" fxFlex.gt-xs="80" fxFlex.xs=""></app-service-list>
 
 

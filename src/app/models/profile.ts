@@ -6,6 +6,7 @@ export class Profile extends CoreFields {
   firstName: string;
   lastName: string;
   email: string;
+  address: string;
   password: string;
 
 }
