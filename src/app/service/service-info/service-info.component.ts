@@ -10,9 +10,14 @@ import {Review} from "../../models/review";
   styleUrls: ['./service-info.component.css']
 })
 export class ServiceInfoComponent implements OnInit {
-  private entity: Entity;
-  private entityId: string;
-  private reviews: Array<Review>;
+  entity: Entity;
+  entityId: string;
+
+  reviews: Array<Review>;
+
+  reviewTitle: string;
+  reviewText: string;
+  reviewScore: number;
 
   constructor(public dialogRef: MatDialogRef<ServiceInfoComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -24,6 +29,17 @@ export class ServiceInfoComponent implements OnInit {
       this.entityId = this.entity.id;
     }
 
+  }
+
+  submitForm() {
+    let review = new Review();
+    review.entityId = this.entityId;
+    review.score = this.reviewScore;
+    review.text = this.reviewText;
+    review.title = this.reviewTitle;
+    review.user = {id: 'myuserid', name: 'George'};
+    console.log(review);
+    this.db.createReview(review);
   }
 
   ngOnInit() {

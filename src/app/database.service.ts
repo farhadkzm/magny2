@@ -66,6 +66,12 @@ export class DatabaseService {
       );
   }
 
+  createReview(review: Review): void {
+
+    this.http.post(`${this.esUrl}/review/_doc`, review).toPromise()
+      .then(data => console.log(data));
+  }
+
   updateProfile(profile: Profile): void {
 
     this.http.post(`${this.esUrl}/profile/_doc/myuserid`, profile).toPromise()

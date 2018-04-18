@@ -1,19 +1,26 @@
 <div fxLayout="column" fxLayoutGap="10px">
   <app-service-info-min [entity]="entity" [disabledMoreInfo]="true"></app-service-info-min>
 
-  <form fxLayout="column">
-
-    <mat-form-field fxFlex="100">
-      <textarea matInput placeholder="Write your review"></textarea>
+  <form fxLayout="column" #f="ngForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <input matInput placeholder="Title" name="title"
+             [(ngModel)]="reviewTitle"/>
     </mat-form-field>
     <mat-form-field fxFlex="100">
-      <mat-select placeholder="Score">
-        <mat-option *ngFor="let score of [1,2,3,4,5]" value="item">{{score}}</mat-option>
+      <textarea matInput placeholder="Write your review"
+                name="text"
+                [(ngModel)]="reviewText"></textarea>
+    </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <mat-select placeholder="Score"
+                  name="score"
+                  [(ngModel)]="reviewScore">
+        <mat-option *ngFor="let score of [1,2,3,4,5]"
+                    [value]="score">{{score}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button fxFlex="30" mat-raised-button color="primary">Send</button>
-
+    <button fxFlex="30" mat-raised-button color="primary" type="submit">Send</button>
   </form>
 
   <div fxLayout="column" fxLayoutGap="10px">
@@ -31,7 +38,7 @@
           <p fxFlex="100">{{review.text}}</p>
           <div fxFlex="80"></div>
           <div fxFlex="20">
-            <button  mat-icon-button>
+            <button mat-icon-button>
               <mat-icon>mood_bad</mat-icon>
             </button>
           </div>
