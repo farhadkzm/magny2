@@ -23,6 +23,7 @@ export class NotificationComponent implements OnInit {
 
     this.dialog.open(ServiceInfoComponent, {
       height: '350px',
+      minHeight: '100%',
       data: {entityId}
     });
 

@@ -1,6 +1,7 @@
 <mat-card *ngIf="entity">
 
   <img mat-card-image
+       style="max-height: 300px;max-width: 300px"
        src="{{entity.photoUrl}}"
   >
   <mat-card-header>
@@ -17,7 +18,7 @@
       </div>
       <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
         <mat-icon>web</mat-icon>
-        <a target="_blank" href="{{entity.website}}">{{entity.website}}</a>
+        <a target="_blank"  href="{{entity.website}}">{{entity.website}}</a>
       </div>
       <div fxLayoutGap="10px" fxLayoutAlign="space-around center">
         {{entity.address}}
