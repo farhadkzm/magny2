@@ -8,5 +8,6 @@ export class Review extends CoreFields {
   text: string;
   score: number;
   entityId: string;
+  reported: boolean;
 
 }
