@@ -15,7 +15,7 @@
       <mat-select placeholder="Score"
                   name="score"
                   [(ngModel)]="reviewScore">
-        <mat-option *ngFor="let score of [1,2,3,4,5]"
+        <mat-option *ngFor="let score of scoreValues"
                     [value]="score">{{score}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -36,12 +36,14 @@
       <mat-card-content>
         <div fxLayout fxLayoutWrap="">
           <p fxFlex="100">{{review.text}}</p>
-          <div fxFlex="80"></div>
-          <div fxFlex="20">
+          <span> {{review.created}}</span>
+
+       <!--   <div fxFlex="80"></div>-->
+         <!-- <div fxFlex="20">
             <button mat-icon-button>
               <mat-icon>mood_bad</mat-icon>
             </button>
-          </div>
+          </div>-->
 
         </div>
       </mat-card-content>

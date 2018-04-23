@@ -12,7 +12,7 @@ import {Review} from "../../models/review";
 export class ServiceInfoComponent implements OnInit {
   entity: Entity;
   entityId: string;
-
+  scoreValues = [1, 2, 3, 4];
   reviews: Array<Review>;
 
   reviewTitle: string;
