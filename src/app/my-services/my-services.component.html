@@ -56,4 +56,41 @@
       </div>
     </form>
   </mat-card>
+
+  <!--Form to submit a new notification-->
+  <mat-card>
+    <form #f="ngForm" (ngSubmit)="postNotification()">
+      <mat-form-field>
+        <input matInput placeholder="Title"
+               name="name" [(ngModel)]="notificationTitle">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description"
+                  name="description" [(ngModel)]="notificationText"></textarea>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <a mat-button>Cancel</a>
+
+        <button mat-raised-button color="primary" type="submit">Send</button>
+      </div>
+    </form>
+  </mat-card>
+
+  <!--List of past notifications-->
+  <mat-card *ngFor="let notif of  pastNotifications">
+    <mat-card-content>
+      <div fxLayout="" fxLayoutGap="5px">
+        <div fxLayout="column">
+          <span>{{notif.title}}</span>
+          <span>{{notif.description}}</span>
+        </div>
+
+
+      </div>
+    </mat-card-content>
+
+
+  </mat-card>
+
 </div>

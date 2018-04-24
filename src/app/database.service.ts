@@ -4,6 +4,7 @@ import {Entity} from "./models/entity";
 import {Review} from "./models/review";
 import {Profile} from "./models/profile";
 import {ESLocation} from "./models/eSLcation";
+import {Notification} from "./models/notification";
 
 @Injectable()
 export class DatabaseService {
@@ -36,10 +37,37 @@ export class DatabaseService {
       .then(data => console.log(data));
   }
 
+  postNotification(notification: Notification): Promise<any> {
+
+
+    return this.http.post(`${this.esUrl}/notification/_doc`, notification).toPromise()
+      .then(data => console.log(data));
+  }
+
   getMyBusiness(): Promise<Entity> {
     let ownerId: string = 'myuserid';
 
     return this.get('entity', ownerId)
+
+  }
+
+  getPastBizNotifications(entityId: string): Promise<Array<Notification>> {
+    //resultEvent
+    let searchRequest = {
+      "query": {
+        "bool": {
+          "filter": [{"term": {"entityId": entityId}}]
+        }
+      }
+
+    };
+    return this.http.post(`${this.esUrl}/notification/_search`, searchRequest)
+      .toPromise()
+      .then(data => data['hits'].hits.map(it => {
+        let source = it._source;
+        source.id = it._id;
+        return source
+      }));
 
   }
 
