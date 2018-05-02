@@ -15,7 +15,6 @@ export class DatabaseService {
   constructor(private http: HttpClient) {
   }
 
-
   getReviews(entityId: string, from: number = 0, size: number = 10): Promise<Array<Review>> {
 
     return this.http.post(`${this.esUrl}/review/_search`, {
@@ -71,6 +70,79 @@ export class DatabaseService {
 
   }
 
+  getSubscribedNotifications(): Promise<Array<Notification>> {
+    let userId = 'myuserid';
+    //resultEvent
+    let searchRequest = {
+      "query": {
+        "bool": {
+          "filter": [{"term": {"userId": userId}}]
+        }
+      }
+
+    };
+    return this.http.post(`${this.esUrl}/subscribed_business/_search`, searchRequest)
+      .toPromise()
+      .then(data => data['hits'].hits.map(it => it._source.entityId))
+      .then(ids => {
+
+        //resultEvent
+        let searchRequest = {
+          "query": {
+            "bool": {
+              "filter": [{"terms": {"entityId": ids}}]
+            }
+          }
+
+        };
+        return this.http.post(`${this.esUrl}/notification/_search`, searchRequest)
+          .toPromise()
+          .then(data => data['hits'].hits.map(it => {
+            let source = it._source;
+            source.id = it._id;
+            return source
+          }));
+
+      })
+
+  }
+
+  getNearbyNotifications(): Promise<Array<Notification>> {
+    return this.getMyProfile().then(profile => profile.address)
+      .then(address => this.getGeoCode(address, null))
+      .then(data=>{console.log('getGeoCode',data);return data;})
+      .then(location => this.searchServices(location,
+        null,
+        null,
+        null,
+        20))
+      .then(data=>{console.log('searchServices',data);return data;})
+      .then(entities => entities.map(it => it.id))
+      .then(data=>{console.log('entities.map',data);return data;})
+      .then(ids => {
+
+        //resultEvent
+        let searchRequest = {
+          "query": {
+            "bool": {
+              "filter": [{"terms": {"entityId": ids}}]
+            }
+          }
+
+        };
+        return this.http.post(`${this.esUrl}/notification/_search`, searchRequest)
+          .toPromise()
+          .then(data => data['hits'].hits.map(it => {
+            let source = it._source;
+            source.id = it._id;
+            return source
+          }));
+
+      })
+      .then(data=>{console.log('search',data);return data;});
+
+
+  }
 
   getMyProfile(): Promise<Profile> {
 
@@ -112,16 +184,6 @@ export class DatabaseService {
       sort: [{created: "desc"}],
       from, size
     });
-  }
-
-  getNotifications(from: number = 0, size: number = 10): Promise<Array<Entity>> {
-
-    return this.search({
-      sort: [{created: "desc"}],
-      _source: ["photoUrl", "name", "serviceType"],
-      from, size
-    });
-
   }
 
   search(searchConfig: any): Promise<Array<Entity>> {

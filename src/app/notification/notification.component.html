@@ -1,16 +1,39 @@
-<mat-card *ngFor="let entity of  entities">
+<mat-card>
   <mat-card-content>
-    <div fxLayout="" fxLayoutGap="5px">
-      <img style=" width: 50px; height: 50px"
-           src="{{entity.photoUrl}}"/>
-      <div fxLayout="column">
-        <span><b>{{entity.name}}</b> ({{entity.serviceType}}) was added to Magny.</span>
-        <span>See <a (click)="onMoreInfo(entity.id)">details</a></span>
-      </div>
+    <mat-tab-group>
+      <mat-tab label="Subscribed List">
+        <mat-card *ngFor="let notif of  subscribedList">
+          <mat-card-content>
+            <div fxLayout="" fxLayoutGap="5px">
+              <div fxLayout="column">
+                <span>{{notif.title}}</span>
+                <span>{{notif.description}}</span>
+              </div>
 
 
-    </div>
+            </div>
+          </mat-card-content>
+
+
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Nearby Businesses">
+        <mat-card *ngFor="let notif of  nearbyList">
+          <mat-card-content>
+            <div fxLayout="" fxLayoutGap="5px">
+              <div fxLayout="column">
+                <span>{{notif.title}}</span>
+                <span>{{notif.description}}</span>
+              </div>
+
+
+            </div>
+          </mat-card-content>
+
+
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
   </mat-card-content>
-
-
 </mat-card>
+
