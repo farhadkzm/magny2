@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
 import {NgModule} from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {ServiceComponent} from './service/service.component';
@@ -50,8 +50,9 @@ import {HomeComponent} from './home/home.component';
 import {UserAdminComponent} from './admin/user-admin/user-admin.component';
 import {ServiceAdminComponent} from './admin/service-admin/service-admin.component';
 import {ServiceNewComponent} from './service/service-new/service-new.component';
-import { ServiceInfoMinComponent } from './service/service-info-min/service-info-min.component';
+import {ServiceInfoMinComponent} from './service/service-info-min/service-info-min.component';
 import {DatabaseService} from "./database.service";
+import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular'
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -115,13 +116,14 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB_5xR0k1AhYbVW5OP_t6XFncWE7xDHw_0'
     }),
+    AmplifyAngularModule,
   ],
   entryComponents: [ServiceInfoComponent,
     ServiceInfoMinComponent,
     ServiceNewComponent,
     UserAdminComponent,
     ServiceAdminComponent],
-  providers: [DatabaseService],
+  providers: [DatabaseService, AmplifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
